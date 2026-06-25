@@ -4,7 +4,7 @@
 
 FROM --platform=linux/amd64 public.ecr.aws/lambda/python:3.12
 
-LABEL maintainer="randomstuff.kcs@gmail.com" \
+LABEL maintainer="blanked for security" \
       description="Financial Sentiment Analyzer — DistilBERT on Lambda" \
       version="1.0.0"
 
