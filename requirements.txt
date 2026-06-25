@@ -1,0 +1,18 @@
+# Lambda runtime dependencies — used by Dockerfile and app.py
+# Install: pip install -r requirements.txt
+#          (Dockerfile adds --extra-index-url https://download.pytorch.org/whl/cpu)
+
+# CPU-only torch wheel; platform marker skips this on macOS/Windows dev machines
+torch==2.3.1+cpu; platform_system == "Linux"
+
+# 4.46+ ships cp313 wheels; tokenizers 0.20 is the matching release
+transformers==4.46.3
+tokenizers==0.20.3
+
+fastapi==0.111.0
+pydantic>=2.7,<3
+mangum==0.17.0
+
+onnxruntime==1.20.0   # inference only — optimum is NOT needed at runtime
+
+numpy==1.26.4

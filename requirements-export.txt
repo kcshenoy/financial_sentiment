@@ -1,0 +1,18 @@
+# Dev-only: ONNX export and quantization via convert_to_onnx.py
+# Run ONCE on your dev machine after fine-tuning, NOT inside Lambda.
+#
+# Recommended: use Python 3.11 or 3.12 for this step (matches Lambda and avoids
+# tokenizers source-build issues on Python 3.13).
+#
+#   pyenv local 3.11
+#   python -m venv .venv-export && source .venv-export/bin/activate
+#   pip install -r requirements-export.txt
+#
+# optimum's transformers upper bound changes with each release, so versions
+# are left unpinned here and let pip resolve a compatible set.
+
+transformers>=4.29
+optimum[onnxruntime]>=1.20.0
+onnxruntime==1.20.0
+numpy>=2.0.0
+ml_dtypes>=0.5.0

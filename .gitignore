@@ -1,0 +1,14 @@
+# Virtual environment
+bin/
+lib/
+include/
+share/
+pyvenv.cfg
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Model checkpoints (large files)
+checkpoints/
+model/

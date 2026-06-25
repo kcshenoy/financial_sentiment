@@ -1,0 +1,25 @@
+# Exclude the local venv — pip installs inside the container from requirements.txt
+bin/
+include/
+lib/
+lib64/
+pyvenv.cfg
+
+# Dev/training artifacts that don't belong in the Lambda image
+*.py[cod]
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+*.ipynb
+*.ipynb_checkpoints/
+
+# Model weights in PyTorch format are large; only copy what you intend to ship.
+# If you want to ship the pytorch fallback, comment out the next two lines.
+# model/*.bin
+# model/*.safetensors
+
+# Tooling
+.git/
+.gitignore
+.dockerignore
+convert_to_onnx.py
