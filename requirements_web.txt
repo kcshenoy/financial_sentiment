@@ -1,0 +1,15 @@
+# Web app dependencies (streamlit_app.py)
+# Install into a SEPARATE venv from requirements.txt (Lambda deps conflict on starlette):
+#   python -m venv venv_web && source venv_web/bin/activate
+#   pip install -r requirements_web.txt
+streamlit>=1.32
+python-dotenv>=1.0
+# Pin starlette only if sharing a venv with requirements.txt (fastapi==0.111.0 constraint)
+# starlette>=0.37.2,<0.38.0
+yfinance>=0.2.38
+pandas>=2.0
+numpy>=1.24
+plotly>=5.18
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
