@@ -65,7 +65,13 @@ def export_and_quantize(model_dir: Path, output_dir: Path) -> Path:
 
 
 def load_pytorch_pipeline(model_dir: Path):
+    import torch
     from transformers import pipeline
+    # Match ONNX session's intra_op_num_threads=1 — both back Lambda's single
+    # vCPU allocation, so an unconstrained multi-core runner would otherwise
+    # give PyTorch an unfair thread-count advantage over the pinned ONNX session.
+    torch.set_num_threads(1)
+    torch.set_num_interop_threads(1)
     return pipeline("text-classification", model=str(model_dir), tokenizer=str(model_dir), device=-1, top_k=None)
 
 
