@@ -13,6 +13,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Show CPU features
+        run: grep -m1 flags /proc/cpuinfo | tr ' ' '\n' | grep -E '^(avx2|avx512)' | sort -u
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
